@@ -1,0 +1,25 @@
+name: Executar Script Magento
+
+on:
+  workflow_dispatch:
+
+jobs:
+  executar-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Clonar repositório
+      uses: actions/checkout@v3
+
+    - name: Instalar PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+
+    - name: Executar baixar-enviar.php
+      env:
+        LWEB_USER: ${{ secrets.LWEB_USER }}
+        LWEB_PASS: ${{ secrets.LWEB_PASS }}
+        HG_USER: ${{ secrets.HG_USER }}
+        HG_PASS: ${{ secrets.HG_PASS }}
+      run: php baixar-enviar.php
