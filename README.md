@@ -65,7 +65,7 @@ php baixar-enviar.php
 ---
 
 ## ✉ Contato
-Se tiver dúvidas ou quiser contribuir com melhorias, entre em contato!
+Se tiver dúvidas ou quiser contribuir com melhorias, entre em contato!!!
 
 ---
 
