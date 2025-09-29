@@ -30,6 +30,7 @@ $hg_user = getenv('HG_USER');
 $hg_pass = getenv('HG_PASS');
 $hg_host = "ftp.pratasilver.com";
 $dest_path = "crgr.com.br/arq.zip";
+$dest_path = "loja1.testeagencia.dev.br/wp-content/upgrade/arq.zip";
 
 $upload_cmd = "curl -T $local_file -u '$hg_user:$hg_pass' ftp://$hg_host/$dest_path";
 exec($upload_cmd, $output_upload, $ret_upload);
