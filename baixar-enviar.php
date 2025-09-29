@@ -29,16 +29,22 @@ echo "📤 Enviando arq.zip para FTP da HostGator...\n";
 $hg_user = getenv('HG_USER');
 $hg_pass = getenv('HG_PASS');
 $hg_host = "ftp.pratasilver.com";
-$dest_path = "crgr.com.br/arq.zip";
-$dest_path = "loja1.testeagencia.dev.br/wp-content/upgrade/arq.zip";
+$local_file = "arq.zip"; // Certifique-se de que este caminho está correto
 
-$upload_cmd = "curl -T $local_file -u '$hg_user:$hg_pass' ftp://$hg_host/$dest_path";
-exec($upload_cmd, $output_upload, $ret_upload);
+$dest_paths = [
+    "crgr.com.br/arq.zip",
+    "loja1.testeagencia.dev.br/wp-content/uploads/arq.zip"
+];
 
-if ($ret_upload !== 0) {
-    echo "❌ Erro ao enviar o arquivo para a HostGator.\n";
-    print_r($output_upload);
-    exit;
+foreach ($dest_paths as $dest_path) {
+    $upload_cmd = "curl -T $local_file -u '$hg_user:$hg_pass' ftp://$hg_host/$dest_path";
+    exec($upload_cmd, $output_upload, $ret_upload);
+
+    if ($ret_upload !== 0) {
+        echo "❌ Erro ao enviar para $dest_path\n";
+        print_r($output_upload);
+        exit;
+    }
+
+    echo "✅ Upload finalizado para /$dest_path\n";
 }
-
-echo "✅ Upload finalizado para /crgr.com.br/arq.zip\n";
