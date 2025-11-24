@@ -28,9 +28,9 @@ schedule:
 Vá em **Settings > Secrets and variables > Actions > New repository secret** e adicione:
 
 | Nome        | Descrição                                |
-|-------------|--------------------------------------------|
-| `LWEB_USER` | Usuário FTP da LocalWeb                   |
-| `LWEB_PASS` | Senha FTP da LocalWeb                     |
+|-------------|------------------------------------------|
+| `LWEB_USER` | Usuário FTP da LocalWeb                  |
+| `LWEB_PASS` | Senha FTP da LocalWeb                    |
 | `HG_USER`   | Usuário FTP da HostGator                 |
 | `HG_PASS`   | Senha FTP da HostGator                   |
 
